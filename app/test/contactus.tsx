@@ -7,6 +7,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import Form from "./form"
 
+const labelStyles = "block text-sm leading-6 text-gray-600"
+const inputStyles = "mt-1.5 text-gray-900"
+
 export default function ContactUsForm({ 
   backgroundImage = "/laptop.jpg?height=3500&width=7538",
   overlayOpacity = 0.7
@@ -59,9 +62,9 @@ export default function ContactUsForm({
           <div className="w-full h-full flex items-center justify-center py-4 md:py-8 min-h-[300px]">
             <div className=" w-full max-w-xl">
               <h2 className="text-blue-600 text-3xl text-center font-bold mb-6">Contact Us</h2>
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-2 bg-gray-600 bg-opacity-50 rounded-lg shadow-xl p-6">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-2 bg-neutral-100 rounded-lg shadow-xl p-6">
                 <div>
-                  <Label htmlFor="name" className="block text-sm leading-6 text-neutral-200">Name</Label>
+                  <Label htmlFor="name" className={labelStyles}>Name</Label>
                   <Input
                     id="name"
                     name="name"
@@ -69,11 +72,11 @@ export default function ContactUsForm({
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-neutral-300 mt-2 text-gray-900"
+                    className={inputStyles}
                   />
                 </div>
                 <div>
-                  <label htmlFor="last-name" className="block text-sm leading-6 text-neutral-200">
+                  <label htmlFor="last-name" className={labelStyles}>
                     Last Name
                   </label>
                   <Input
@@ -82,11 +85,11 @@ export default function ContactUsForm({
                       type="text"
                       required
                       autoComplete="family-name"
-                      className="bg-neutral-300 mt-2  text-gray-900"
+                      className={inputStyles}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email" className="block text-sm leading-6 text-neutral-200">
+                  <Label htmlFor="email" className={labelStyles}>
                     Email
                   </Label>
                   <Input
@@ -96,11 +99,11 @@ export default function ContactUsForm({
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-neutral-300 mt-2  text-gray-900"
+                    className={inputStyles}
                   />
                 </div>
                 <div>
-                  <label htmlFor="company" className="block text-sm leading-6 text-neutral-200">
+                  <label htmlFor="company" className={labelStyles}>
                     Company
                   </label>                  
                     <Input
@@ -108,18 +111,18 @@ export default function ContactUsForm({
                       name="company"
                       type="text"
                       autoComplete="organization"
-                      className="bg-neutral-300 mt-2  text-gray-900"
+                      className={inputStyles}
                     />
               </div>
                 <div className="md:col-span-2">
-                  <Label htmlFor="message" className="text-sm text-neutral-400">Message</Label>
+                  <Label htmlFor="message" className={labelStyles}>Message</Label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="min-h-[100px] bg-neutral-300 mt-2 border border-neutral-400 text-gray-900"
+                    className="min-h-[100px] mt-2 border border-neutral-400 text-gray-900"
                   />
                 </div>
                 <div className="md:col-span-2 mt-2">
