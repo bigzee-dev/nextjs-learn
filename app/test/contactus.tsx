@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import Form from "./form"
+import AltForm from "./altForm"
+import SocialContacts from './socialContacts'
 
-const labelStyles = "block text-sm leading-6 text-gray-600"
-const inputStyles = "mt-1.5 text-gray-900"
+const labelStyles = "block text-sm leading-6 text-gray-700 font-medium"
+const inputStyles = "mt-1 text-gray-900"
 
 export default function ContactUsForm({ 
-  backgroundImage = "/laptop.jpg?height=3500&width=7538",
+  backgroundImage = "/purple.jpg?height=7500&width=2500",
   overlayOpacity = 0.7
 }: {
   backgroundImage?: string
@@ -36,17 +37,16 @@ export default function ContactUsForm({
 
   return (
     <div className="relative w-full max-w-[1800px] mx-auto">
-      <style jsx global>{`
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: #000;
-          transition: background-color 5000s ease-in-out 0s;
-          box-shadow: inset 0 0 20px 20px rgba(229, 229, 229, 0.5);
-        }
-      `}</style>
+      
+      
+      <div className="flex flex-col items-center w-full py-10">
+        <h2 className="text-neutral-100 text-4xl font-bold mb-6 bg-blue-600 max-w-fit transform -rotate-2">Contact Us
+        </h2>
+        <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+          
+          <p className="mt-1 text-sm leading-6 text-gray-600">Get in touch with our team and find out what solution best fits for you.</p>
+      </div>
+      
       <div className="grid grid-cols-1">
         {/* Background Image */}
         <div 
@@ -59,10 +59,11 @@ export default function ContactUsForm({
           // style={{ opacity: overlayOpacity }}
         >
           {/* Content */}
-          <div className="w-full h-full flex items-center justify-center py-4 md:py-8 min-h-[300px]">
-            <div className=" w-full max-w-xl">
-              <h2 className="text-blue-600 text-3xl text-center font-bold mb-6">Contact Us</h2>
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-2 bg-neutral-100 rounded-lg shadow-xl p-6">
+          <div className="w-full h-full flex items-center justify-center py-10 min-h-[300px]">
+            <div className="grid grid-cols-1 justify-items-center w-full max-w-4xl mx-auto">
+              
+              
+              {/*<form onSubmit={handleSubmit} className="flex-2 grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 bg-neutral-50 rounded-lg shadow-xl p-6">
                 <div>
                   <Label htmlFor="name" className={labelStyles}>Name</Label>
                   <Input
@@ -113,7 +114,7 @@ export default function ContactUsForm({
                       autoComplete="organization"
                       className={inputStyles}
                     />
-              </div>
+                </div>
                 <div className="md:col-span-2">
                   <Label htmlFor="message" className={labelStyles}>Message</Label>
                   <Textarea
@@ -122,17 +123,20 @@ export default function ContactUsForm({
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="min-h-[100px] mt-2 border border-neutral-400 text-gray-900"
+                    className="min-h-[100px] mt-1 border border-neutral-400 text-gray-900"
                   />
                 </div>
                 <div className="md:col-span-2 mt-2">
                   <Button type="submit" className="w-full text-neutral-100 bg-indigo-600">Send Message</Button>
                 </div>  
-              </form>
+              </form>*/}
+              <AltForm className="col-span-4" />
+              <SocialContacts />
             </div>
           </div>
         </div>
       </div>
+
     </div>
   )
 }
